@@ -1,0 +1,240 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+
+// 404 in production - this is a dev-only reference page
+if (import.meta.env.PROD) {
+  return new Response(null, { status: 404, statusText: 'Not Found' });
+}
+---
+
+<Base title="Typography" noindex>
+  <main class="typography-page">
+    <header class="page-header">
+      <h1>Typography</h1>
+      <p>Text styles reference</p>
+    </header>
+
+    <section class="type-section">
+      <h2>Headings</h2>
+      <div class="type-samples">
+        <div class="type-sample">
+          <span class="type-label">h1</span>
+          <h1>Heading One</h1>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">h2</span>
+          <h2>Heading Two</h2>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">h3</span>
+          <h3>Heading Three</h3>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">h4</span>
+          <h4>Heading Four</h4>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">h5</span>
+          <h5>Heading Five</h5>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">h6</span>
+          <h6>Heading Six</h6>
+        </div>
+      </div>
+    </section>
+
+    <section class="type-section">
+      <h2>Body Text</h2>
+      <div class="type-samples">
+        <div class="type-sample">
+          <span class="type-label">p</span>
+          <p>The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate the body text style. It should be readable and comfortable for long-form content.</p>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">small</span>
+          <p><small>This is small text, typically used for captions or footnotes.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="type-section">
+      <h2>Links &amp; Emphasis</h2>
+      <div class="type-samples">
+        <div class="type-sample">
+          <span class="type-label">a</span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">strong</span>
+          <p><strong>This is bold text</strong></p>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">em</span>
+          <p><em>This is italic text</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="type-section">
+      <h2>UI Elements</h2>
+      <div class="type-samples">
+        <div class="type-sample">
+          <span class="type-label">eyebrow</span>
+          <span class="eyebrow">Eyebrow Title</span>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">button</span>
+          <Button href="#">Button Text</Button>
+        </div>
+        <div class="type-sample">
+          <span class="type-label">arrow button</span>
+          <Button href="#" arrow>Learn More</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="type-section">
+      <h2>Spacing Combinations</h2>
+
+      <div class="spacing-example">
+        <span class="spacing-label">H1 → H2 → Paragraph</span>
+        <div class="spacing-content">
+          <h1>Main Page Title</h1>
+          <h2>Section Subtitle</h2>
+          <p>Ball Run transforms everyday streets into places of discovery, encouraging people of all ages to explore, connect and play within their city. Inspired by the spirit of outdoor adventure.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">H2 → H3 → Paragraph</span>
+        <div class="spacing-content">
+          <h2>Section Heading</h2>
+          <h3>Subsection Heading</h3>
+          <p>Ball Run transforms everyday streets into places of discovery, encouraging people of all ages to explore, connect and play within their city.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">H3 → H4 → Paragraph</span>
+        <div class="spacing-content">
+          <h3>Subsection Heading</h3>
+          <h4>Minor Heading</h4>
+          <p>Inspired by the spirit of outdoor adventure, Ball Run brings moments of curiosity into urban environments through beautifully crafted public marble runs.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">Eyebrow → H1 → Paragraph</span>
+        <div class="spacing-content">
+          <span class="eyebrow">Featured Story</span>
+          <h1>Urban Play Reimagined</h1>
+          <p>Ball Run transforms everyday streets into places of discovery, encouraging people of all ages to explore, connect and play within their city.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">Eyebrow → H2 → Paragraph</span>
+        <div class="spacing-content">
+          <span class="eyebrow">About Us</span>
+          <h2>Our Mission</h2>
+          <p>Inspired by the spirit of outdoor adventure, Ball Run brings moments of curiosity into urban environments through beautifully crafted public marble runs.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">Multiple Paragraphs</span>
+        <div class="spacing-content">
+          <p>Ball Run transforms everyday streets into places of discovery, encouraging people of all ages to explore, connect and play within their city.</p>
+          <p>Inspired by the spirit of outdoor adventure, Ball Run brings moments of curiosity into urban environments through beautifully crafted public marble runs.</p>
+          <p>Our identity draws inspiration from vintage camping badges, national park signage, and heritage wayfinding systems.</p>
+        </div>
+      </div>
+
+      <div class="spacing-example">
+        <span class="spacing-label">H2 → Paragraph → H3 → Paragraph</span>
+        <div class="spacing-content">
+          <h2>About Ball Run</h2>
+          <p>Ball Run transforms everyday streets into places of discovery, encouraging people of all ages to explore, connect and play within their city.</p>
+          <h3>Our Approach</h3>
+          <p>Inspired by the spirit of outdoor adventure, Ball Run brings moments of curiosity into urban environments through beautifully crafted public marble runs.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</Base>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .typography-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: $spacing-unit * 4;
+  }
+
+  .page-header {
+    margin-bottom: $spacing-unit * 6;
+    padding-bottom: $spacing-unit * 4;
+    border-bottom: 1px solid $color-charcoal;
+  }
+
+  .type-section {
+    margin-bottom: $spacing-unit * 6;
+
+    > h2 {
+      @include eyebrow;
+      color: $color-orange;
+      margin-bottom: $spacing-unit * 3;
+    }
+  }
+
+  .type-samples {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 3;
+  }
+
+  .type-sample {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: baseline;
+    gap: $spacing-unit * 2;
+  }
+
+  .type-label {
+    font-family: monospace;
+    font-size: 1.4rem;
+    color: $color-charcoal;
+    opacity: 0.5;
+  }
+
+  .spacing-example {
+    margin-bottom: $spacing-unit * 6;
+    padding-bottom: $spacing-unit * 4;
+    border-bottom: 1px solid rgba($color-charcoal, 0.2);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .spacing-label {
+    display: block;
+    font-family: monospace;
+    font-size: 1.4rem;
+    color: $color-charcoal;
+    opacity: 0.5;
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .spacing-content {
+    padding: $spacing-unit * 3;
+    background: $color-white;
+    border-radius: 4px;
+  }
+</style>

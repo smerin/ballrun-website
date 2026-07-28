@@ -1,0 +1,53 @@
+// =============================================================================
+// Mixins
+// =============================================================================
+
+@use 'variables' as *;
+
+// Breakpoints
+// -----------------------------------------------------------------------------
+@mixin breakpoint($size) {
+  @if $size == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $size == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $size == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $size == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// Typography
+// -----------------------------------------------------------------------------
+@mixin eyebrow {
+  font-family: $font-family-ui;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@mixin btn {
+  display: inline-block;
+  width: fit-content;
+  font-family: $font-family-ui;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: $spacing-unit * 1.5 $spacing-unit * 4;
+  background: $color-orange;
+  color: $color-white;
+  border: none;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+
+  &:hover {
+    background: $color-charcoal;
+  }
+}
+

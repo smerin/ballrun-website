@@ -1,0 +1,28 @@
+// =============================================================================
+// Variables
+// =============================================================================
+
+// Colors
+// -----------------------------------------------------------------------------
+$color-stone: #ece8dc;    // Primary background
+$color-orange: #e84b15;   // Primary accent (CTAs, highlights)
+$color-forest: #4a6242;   // Secondary accent
+$color-charcoal: #192c32; // Primary text & dark backgrounds
+$color-white: #fff;
+
+// Typography
+// -----------------------------------------------------------------------------
+$font-family-heading: "new-spirit", serif;
+$font-family-base: "berthold-baskerville-pro", serif;
+$font-family-ui: "barlow-condensed", sans-serif;
+
+// Spacing
+// -----------------------------------------------------------------------------
+$spacing-unit: 0.8rem;
+
+// Breakpoints
+// -----------------------------------------------------------------------------
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

@@ -1,0 +1,39 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit';
+  arrow?: boolean;
+}
+
+const { href, type = 'button', arrow = false } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  class="btn"
+  href={href}
+  type={!href ? type : undefined}
+>
+  <slot />
+  {arrow && (
+    <svg class="btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )}
+</Tag>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .btn {
+    @include btn;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-unit;
+  }
+
+  .btn__arrow {
+    flex-shrink: 0;
+  }
+</style>

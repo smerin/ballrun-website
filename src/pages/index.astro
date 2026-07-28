@@ -1,44 +1,29 @@
 ---
+import Base from '../layouts/Base.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ball Run - Coming Soon</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: system-ui, -apple-system, sans-serif;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        color: #fff;
-      }
-      .container {
-        text-align: center;
-        padding: 2rem;
-      }
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-      p {
-        font-size: 1.25rem;
-        opacity: 0.8;
-      }
-    </style>
-  </head>
-  <body>
+
+<Base title="Ball Run - Coming Soon">
+  <main class="hero">
     <div class="container">
       <h1>Coming soon...</h1>
     </div>
-  </body>
-</html>
+  </main>
+</Base>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-charcoal;
+    color: $color-stone;
+  }
+
+  .container {
+    text-align: center;
+    padding: $spacing-unit * 4;
+  }
+</style>
