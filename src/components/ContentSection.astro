@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  images?: {
+    src: ImageMetadata;
+    alt: string;
+  }[];
+}
+
+const { title, description, images } = Astro.props;
+---
+
+<section class="content-section">
+  <div class="content-section__inner">
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+
+  {images && images.length > 0 && (
+    <div class="content-section__images">
+      {images.map((image) => (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={300}
+          height={300}
+          fit="cover"
+        />
+      ))}
+    </div>
+  )}
+</section>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .content-section {
+    padding: $spacing-unit * 8 $spacing-unit * 4;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 12 $spacing-unit * 8;
+    }
+  }
+
+  .content-section__inner {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .content-section__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-unit * 3;
+    margin-top: $spacing-unit * 6;
+
+    img {
+      border-radius: 1rem;
+    }
+  }
+</style>

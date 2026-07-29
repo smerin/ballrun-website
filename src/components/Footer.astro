@@ -1,0 +1,166 @@
+---
+const siteLinks = [
+  { label: "About", href: "/about" },
+  { label: "Locations", href: "/locations" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact", href: "/contact" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__accent"></div>
+
+  <div class="site-footer__main">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="/" class="site-footer__logo">
+          <img src="/logos/ballrun-logo.svg" alt="Ball Run" />
+        </a>
+      </div>
+
+      <div class="site-footer__links">
+        <div class="site-footer__column">
+          <h4 class="site-footer__heading">Site</h4>
+          <nav class="site-footer__nav">
+            {siteLinks.map((link) => (
+              <a href={link.href} class="site-footer__link">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div class="site-footer__column">
+          <h4 class="site-footer__heading">Contact</h4>
+          <div class="site-footer__contact">
+            <a href="mailto:ben@ballrun.co.uk" class="site-footer__link">
+              ben@ballrun.co.uk
+            </a>
+            <a href="tel:07588610389" class="site-footer__link">
+              07588 610389
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__inner">
+        <p class="site-footer__copyright">
+          &copy; {currentYear} Oddball CIC
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .site-footer {
+    margin-top: auto;
+    border-top: $spacing-unit * 2 solid $color-white;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+  }
+
+  .site-footer__accent {
+    height: $spacing-unit;
+    background: $color-charcoal;
+  }
+
+  .site-footer__main {
+    background: $color-forest;
+    padding-top: $spacing-unit * 6;
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 4;
+    margin: 0 auto;
+    padding: 0 $spacing-unit * 4;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    @include breakpoint(lg) {
+      padding: 0 $spacing-unit * 8;
+    }
+  }
+
+  .site-footer__brand {
+    flex-shrink: 0;
+  }
+
+  .site-footer__logo {
+    display: block;
+
+    img {
+      display: block;
+      width: 10rem;
+      height: auto;
+    }
+  }
+
+  .site-footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 4;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+      gap: $spacing-unit * 10;
+    }
+  }
+
+  .site-footer__column {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 1.5;
+  }
+
+  .site-footer__heading {
+    @include eyebrow;
+    color: $color-orange;
+    margin-bottom: 0;
+  }
+
+  .site-footer__nav,
+  .site-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 1;
+  }
+
+  .site-footer__link {
+    @include eyebrow;
+    color: $color-white;
+    text-decoration: none;
+    margin-bottom: 0;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+
+  .site-footer__bottom {
+    margin-top: $spacing-unit * 6;
+    border-top: 1px solid rgba($color-white, 0.2);
+    padding: $spacing-unit * 3 0;
+  }
+
+  .site-footer__copyright {
+    font-family: $font-family-base;
+    font-size: 1.4rem;
+    color: $color-white;
+    margin: 0;
+  }
+</style>

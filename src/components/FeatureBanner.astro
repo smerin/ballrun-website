@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const { eyebrow, title, description, buttonText, buttonHref, image, imageAlt } = Astro.props;
+---
+
+<section class="feature-banner">
+  <Image
+    src={image}
+    alt={imageAlt}
+    class="feature-banner__image"
+    widths={[640, 1024, 1536, 2048]}
+    sizes="100vw"
+  />
+  <div class="feature-banner__overlay"></div>
+  <div class="feature-banner__content">
+    {eyebrow && <p class="feature-banner__eyebrow">{eyebrow}</p>}
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <Button href={buttonHref} arrow>{buttonText}</Button>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .feature-banner {
+    position: relative;
+    min-height: 50rem;
+    max-height: 70rem;
+    height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-top: $spacing-unit solid $color-white;
+    border-bottom: $spacing-unit solid $color-white;
+  }
+
+  .feature-banner__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  .feature-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: -1;
+  }
+
+  .feature-banner__content {
+    padding: $spacing-unit * 4;
+    color: $color-white;
+
+    p {
+      max-width: 60rem;
+    }
+
+    @include breakpoint(lg) {
+      padding: $spacing-unit * 8;
+    }
+  }
+
+  .feature-banner__eyebrow {
+    @include eyebrow;
+    color: $color-orange;
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const { title, description, buttonText, buttonHref, image, imageAlt } = Astro.props;
+---
+
+<section class="hero">
+  <Image
+    src={image}
+    alt={imageAlt}
+    class="hero__image"
+    widths={[640, 1024, 1536, 2048]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <Button href={buttonHref} arrow>{buttonText}</Button>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .hero {
+    --header-height: 11.6rem;
+
+    position: relative;
+    height: calc(100svh - var(--header-height));
+    max-height: 70rem;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-bottom: $spacing-unit solid $color-white;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+  }
+
+  .hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: -2;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: -1;
+  }
+
+  .hero__content {
+    padding: $spacing-unit * 4;
+    max-width: 70rem;
+    color: $color-white;
+
+    @include breakpoint(lg) {
+      padding: $spacing-unit * 8;
+    }
+  }
+</style>

@@ -21,12 +21,23 @@
 // Typography
 // -----------------------------------------------------------------------------
 @mixin eyebrow {
+  display: block;
   font-family: $font-family-ui;
   font-size: 2.4rem;
   line-height: 1.2;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-bottom: $spacing-unit * 1;
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 0;
+  }
 }
 
 @mixin btn {
@@ -48,6 +59,19 @@
 
   &:hover {
     background: $color-charcoal;
+  }
+}
+
+@mixin text-link {
+  @include eyebrow;
+  display: inline;
+  margin-bottom: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-orange;
   }
 }
 

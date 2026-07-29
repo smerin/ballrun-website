@@ -1,0 +1,135 @@
+---
+interface Props {
+  announcementText?: string;
+}
+
+const { announcementText = "Coming to Millenium Square • 3rd August" } = Astro.props;
+
+const navLinks = [
+  { label: "About", href: "/about" },
+  { label: "Locations", href: "/locations" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact", href: "/contact" },
+];
+---
+
+<header class="site-header">
+  <div class="site-header__top">
+    {announcementText && (
+      <div class="site-header__announcement">
+        {announcementText}
+      </div>
+    )}
+  </div>
+
+  <div class="site-header__navbar">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">
+        <img src="/logos/ballrun-logo.svg" alt="Ball Run" />
+      </a>
+
+      <nav class="site-header__nav">
+        {navLinks.map((link) => (
+          <a href={link.href} class="site-header__nav-link">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .site-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .site-header__top {
+    @include breakpoint(md) {
+      display: flex;
+      justify-content: flex-end;
+      padding: $spacing-unit * 2 $spacing-unit * 4;
+    }
+  }
+
+  .site-header__announcement {
+    font-family: $font-family-ui;
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-white;
+    background: $color-orange;
+    padding: $spacing-unit * 1.5 $spacing-unit * 2;
+    text-align: center;
+    margin-bottom: $spacing-unit * 5;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit $spacing-unit * 2;
+      border-radius: 8rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .site-header__navbar {
+    background: $color-charcoal;
+    border-top: $spacing-unit * 0.5 solid $color-white;
+    border-bottom: $spacing-unit * 0.5 solid $color-white;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-unit * 2;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: $spacing-unit $spacing-unit * 2;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit $spacing-unit * 4;
+    }
+  }
+
+  .site-header__logo {
+    display: block;
+    flex-shrink: 0;
+    margin-top: -$spacing-unit * 6;
+    margin-bottom: -$spacing-unit * 6;
+
+    img {
+      display: block;
+      width: 12rem;
+      height: 12rem;
+      height: auto;
+    }
+  }
+
+  .site-header__nav {
+    display: flex;
+    column-gap: $spacing-unit * 4;
+    row-gap: $spacing-unit;
+    flex-wrap: wrap;
+  }
+
+  .site-header__nav-link {
+    font-family: $font-family-ui;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-white;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+</style>

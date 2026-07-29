@@ -1,29 +1,67 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ContentSection from '../components/ContentSection.astro';
+import FeatureBanner from '../components/FeatureBanner.astro';
+import CardSection from '../components/CardSection.astro';
+import Card from '../components/Card.astro';
+import heroImage from '../assets/images/ball-run-pic-1.jpg';
+import introImage1 from '../assets/images/ball-run-pic-2.jpg';
+import introImage2 from '../assets/images/gpp-eden-145.jpg';
+import introImage3 from '../assets/images/ball-run-pic-3.jpg';
+import bristolImage from '../assets/images/millenium-square-planetarium.jpg';
+import woodenBallsImage from '../assets/images/wooden-ball-company-aerial-view.jpg';
+import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jpg';
 ---
 
 <Base title="Ball Run - Coming Soon">
-  <main class="hero">
-    <div class="container">
-      <h1>Coming soon...</h1>
-    </div>
+  <main>
+    <Hero
+      title="Urban Play, Re-Imagined"
+      description="Hand-built installations, brought to the heart of towns and cities. Come and play - no ticket, no timer, just balls, runs, and a bit of wonder."
+      buttonText="Explore the Bristol Trail"
+      buttonHref="/bristol"
+      image={heroImage}
+      imageAlt="Child playing with a wooden ball run installation"
+    />
+
+    <ContentSection
+      title="Load It. Send It. Keep It."
+      description="Load your ball, set it moving, and watch it wind, tip, dip and race its way through - then keep it as a souvenir and come back as many times as you want."
+      images={[
+        { src: introImage1, alt: "Girl holding a wooden ball at a ball run" },
+        { src: introImage2, alt: "Wooden ball run track detail" },
+        { src: introImage3, alt: "Family enjoying a ball run installation" },
+      ]}
+    />
+
+    <FeatureBanner
+      eyebrow="Coming Soon"
+      title="The Great Bristol Ball Run"
+      description="Six runs across Anchor Square and Millennium Square. Find us from the 3rd August."
+      buttonText="Explore the Bristol Trail"
+      buttonHref="/bristol"
+      image={bristolImage}
+      imageAlt="Millennium Square planetarium and water features"
+    />
+
+    <CardSection title="Hand-built play, in the wild">
+      <Card
+        title="Hand-built, not off the shelf"
+        description="Meet the makers behind Ball Run and the sustainable timber every ball is turned from."
+        linkText="About Us"
+        linkHref="/about"
+        image={woodenBallsImage}
+        imageAlt="Handcrafted wooden balls"
+      />
+      <Card
+        title="Bring a Ball Run to your city"
+        description="We're always looking for city centres, venues and businesses to partner with."
+        linkText="Partner With Us"
+        linkHref="/partners"
+        image={bristolMistImage}
+        imageAlt="Bristol suspension bridge in morning mist"
+      />
+    </CardSection>
   </main>
 </Base>
-
-<style lang="scss">
-  @use '../styles/variables' as *;
-
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $color-charcoal;
-    color: $color-stone;
-  }
-
-  .container {
-    text-align: center;
-    padding: $spacing-unit * 4;
-  }
-</style>
