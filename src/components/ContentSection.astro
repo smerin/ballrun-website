@@ -54,13 +54,35 @@ const { title, description, images } = Astro.props;
 
   .content-section__images {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: $spacing-unit * 3;
     margin-top: $spacing-unit * 6;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 $spacing-unit * 4;
+    margin-left: -$spacing-unit * 4;
+    margin-right: -$spacing-unit * 4;
+
+    // Hide scrollbar but keep functionality
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     img {
       border-radius: 1rem;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 1044px) {
+      justify-content: center;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 </style>
