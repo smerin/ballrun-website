@@ -1,15 +1,13 @@
 ---
+import navigation from '../data/navigation.json';
+
 interface Props {
   announcementText?: string;
 }
 
 const { announcementText = "Coming to Millenium Square • 3rd August" } = Astro.props;
 
-const navLinks = [
-  { label: "Bristol", href: "/bristol" },
-  { label: "About", href: "/about" },
-  { label: "Partners", href: "/partners" },
-];
+const { navLinks } = navigation;
 ---
 
 <header class="site-header">

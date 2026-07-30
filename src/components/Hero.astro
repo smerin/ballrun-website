@@ -1,17 +1,18 @@
 ---
-import { Image } from 'astro:assets';
-import Button from './Button.astro';
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
 
 interface Props {
   title: string;
   description: string;
-  buttonText: string;
-  buttonHref: string;
+  buttonText?: string;
+  buttonHref?: string;
   image: ImageMetadata;
   imageAlt: string;
 }
 
-const { title, description, buttonText, buttonHref, image, imageAlt } = Astro.props;
+const { title, description, buttonText, buttonHref, image, imageAlt } =
+  Astro.props;
 ---
 
 <section class="hero">
@@ -28,13 +29,19 @@ const { title, description, buttonText, buttonHref, image, imageAlt } = Astro.pr
   <div class="hero__content">
     <h1>{title}</h1>
     <p>{description}</p>
-    <Button href={buttonHref} arrow>{buttonText}</Button>
+    {
+      buttonText && buttonHref && (
+        <Button href={buttonHref} arrow>
+          {buttonText}
+        </Button>
+      )
+    }
   </div>
 </section>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
-  @use '../styles/mixins' as *;
+  @use "../styles/variables" as *;
+  @use "../styles/mixins" as *;
 
   .hero {
     --header-height: 11.6rem;

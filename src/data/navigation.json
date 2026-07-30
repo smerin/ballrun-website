@@ -1,0 +1,7 @@
+{
+  "navLinks": [
+    { "label": "Bristol", "href": "/bristol" },
+    { "label": "About", "href": "/about" },
+    { "label": "Partners", "href": "/partners" }
+  ]
+}

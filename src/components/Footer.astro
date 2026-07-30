@@ -1,11 +1,7 @@
 ---
-const siteLinks = [
-  { label: "About", href: "/about" },
-  { label: "Locations", href: "/locations" },
-  { label: "Partners", href: "/partners" },
-  { label: "Contact", href: "/contact" },
-];
+import navigation from '../data/navigation.json';
 
+const footerLinks = [{ label: 'Home', href: '/' }, ...navigation.navLinks];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -24,7 +20,7 @@ const currentYear = new Date().getFullYear();
         <div class="site-footer__column">
           <h4 class="site-footer__heading">Site</h4>
           <nav class="site-footer__nav">
-            {siteLinks.map((link) => (
+            {footerLinks.map((link) => (
               <a href={link.href} class="site-footer__link">
                 {link.label}
               </a>
