@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ContentSection from '../components/ContentSection.astro';
+import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jpg';
+---
+
+<Base title="Partner With Us | Ball Run">
+  <Hero
+    title="Partner With Us"
+    description="Interested in having a Ball Run trail in your city, or outside your business? We're always looking for partners."
+    buttonText="Get in Touch"
+    buttonHref="mailto:ben@ballrun.co.uk"
+    image={bristolMistImage}
+    imageAlt="Bristol suspension bridge in morning mist"
+  />
+
+  <ContentSection
+    title="Bring Ball Run to Your Space"
+    description="<p>We work with partners — from city centres and BIDs to cultural venues and businesses — to bring a Ball Run trail to urban spaces. Vendors can generate significant ongoing revenues through the sales of branded wooden balls, raising vital funds for themselves or local charities.</p>"
+  />
+
+  <ContentSection
+    title="What We Do"
+    description="<p>We design, build, and install the Ball Runs and provide the wooden balls. Get in touch and let's talk about what a Ball Run could look like for you.</p>"
+    variant="white"
+  />
+
+  <ContentSection
+    title="Get in Touch"
+    description={`<p><a href="mailto:ben@ballrun.co.uk">ben@ballrun.co.uk</a><br /><a href="tel:07588610389">07588 610389</a></p>`}
+  />
+</Base>

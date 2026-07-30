@@ -8,15 +8,16 @@ interface Props {
     src: ImageMetadata;
     alt: string;
   }[];
+  variant?: 'default' | 'white' | 'charcoal' | 'forest';
 }
 
-const { title, description, images } = Astro.props;
+const { title, description, images, variant = 'default' } = Astro.props;
 ---
 
-<section class="content-section">
+<section class={`content-section content-section--${variant}`}>
   <div class="content-section__inner">
     <h2>{title}</h2>
-    <p>{description}</p>
+    <Fragment set:html={description} />
   </div>
 
   {images && images.length > 0 && (
@@ -43,6 +44,21 @@ const { title, description, images } = Astro.props;
 
     @include breakpoint(md) {
       padding: $spacing-unit * 12 $spacing-unit * 8;
+    }
+
+    &--white {
+      background-color: $color-white;
+      box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+    }
+
+    &--charcoal {
+      background-color: $color-charcoal;
+      color: $color-white;
+    }
+
+    &--forest {
+      background-color: $color-forest;
+      color: $color-white;
     }
   }
 

@@ -72,11 +72,14 @@ const { title, description, buttonText, buttonHref, image, imageAlt } = Astro.pr
 
   .hero__content {
     padding: $spacing-unit * 4;
-    max-width: 70rem;
     color: $color-white;
 
     @include breakpoint(lg) {
       padding: $spacing-unit * 8;
+    }
+
+    p {
+      max-width: 70rem;
     }
   }
 </style>
