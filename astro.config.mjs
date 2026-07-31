@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://ballrun.co.uk'
+  site: 'https://ballrun.co.uk',
+  trailingSlash: 'always'
 });
