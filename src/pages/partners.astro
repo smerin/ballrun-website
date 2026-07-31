@@ -2,7 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ContentSection from '../components/ContentSection.astro';
+import ImageContentColumns from '../components/ImageContentColumns.astro';
 import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jpg';
+import gppEden031 from '../assets/images/gpp-eden-031.jpg';
+import gppEden102 from '../assets/images/gpp-eden-102.jpg';
+import gppEden058 from '../assets/images/gpp-eden-058.jpg';
 ---
 
 <Base
@@ -16,19 +20,24 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
     imageAlt="Bristol suspension bridge in morning mist"
   />
 
-  <ContentSection
+  <ImageContentColumns
     title="Bring Ball Run to Your Space"
     description="<p>We work with partners - from city centres and BIDs to cultural venues and businesses - to bring a Ball Run trail to urban spaces. Vendors can generate significant ongoing revenues through the sales of branded wooden balls, raising vital funds for themselves or local charities.</p>"
+    image={{ src: gppEden102, alt: "Ball Run installation" }}
+    layout="image-left"
   />
 
-  <ContentSection
+  <ImageContentColumns
     title="What We Do"
-    description="<p>We design, build, and install the Ball Runs and provide the wooden balls. Get in touch and let’s talk about what a Ball Run could look like for you.</p>"
+    description="<p>We design, build, and install the Ball Runs and provide the wooden balls. Get in touch and let's talk about what a Ball Run could look like for you.</p>"
+    image={{ src: gppEden058, alt: "Ball Run installation" }}
+    layout="image-right"
     variant="white"
   />
 
   <ContentSection
     title="Get in Touch"
     description={`<p><a href="mailto:ben@ballrun.co.uk">ben@ballrun.co.uk</a><br /><a href="tel:07588610389">07588 610389</a></p>`}
+    backgroundImage={{ src: gppEden031, alt: "Ball Run installation at Eden Project" }}
   />
 </Base>

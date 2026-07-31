@@ -19,10 +19,11 @@ const { title } = Astro.props;
 
   .card-section {
     padding: $spacing-unit * 8 $spacing-unit * 3;
-    text-align: center;
+    text-align: left;
 
     @include breakpoint(md) {
       padding: $spacing-unit * 10 $spacing-unit * 4;
+      text-align: center;
     }
 
     @include breakpoint(lg) {

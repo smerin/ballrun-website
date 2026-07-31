@@ -77,13 +77,14 @@ const currentYear = new Date().getFullYear();
     flex-direction: column;
     gap: $spacing-unit * 4;
     margin: 0 auto;
-    padding: 0 $spacing-unit * 4;
+    padding: 0 $spacing-unit * 3;
 
     @include breakpoint(md) {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 0;
+      padding: 0 $spacing-unit * 4;
     }
 
     @include breakpoint(lg) {

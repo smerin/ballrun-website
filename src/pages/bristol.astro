@@ -2,7 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ContentSection from '../components/ContentSection.astro';
+import ImageContentColumns from '../components/ImageContentColumns.astro';
 import bristolImage from '../assets/images/millenium-square-planetarium.jpg';
+import ballRunPic1 from '../assets/images/ball-run-pic-1.jpg';
+import weTheCurious from '../assets/images/we-the-curious.jpg';
+import bristolBridge from '../assets/images/bristol-suspension-bridge-mist.jpg';
 ---
 
 <Base
@@ -16,19 +20,24 @@ import bristolImage from '../assets/images/millenium-square-planetarium.jpg';
     imageAlt="Millennium Square planetarium and water features"
   />
 
-  <ContentSection
+  <ImageContentColumns
     title="Six Runs. Two Squares. Endless Play."
     description="<p>Race a friend through a labyrinth of spinning discs by the Aquarium. Send balls flying through a skittle run near the harbourside. Balance your way along a tilting, wavy channel, or steer through a hands-on tabletop maze nearby. Beside the fountains on Millennium Square, take on our longest city run - watch a ball climb an Archimedes screw lift before setting off on an overhead wire track.</p>"
+    image={{ src: ballRunPic1, alt: "Ball Run installation" }}
+    layout="image-left"
   />
 
-  <ContentSection
+  <ImageContentColumns
     title="Get Your Balls"
     description="<p>Get your balls from We The Curious shop and use as often as you want. Every run on the trail is built to surprise and encourage play and curiosity.</p>"
+    image={{ src: weTheCurious, alt: "We The Curious" }}
+    layout="image-right"
     variant="white"
   />
 
   <ContentSection
     title="Just the Beginning"
     description="<p>This pop-up is just the beginning. We want to make Bristol the UK's first truly playable city - with Ball Run installations woven into daily life right across it - and then take that same ambition to towns and cities across the country.</p>"
+    backgroundImage={{ src: bristolBridge, alt: "Bristol Suspension Bridge in the mist" }}
   />
 </Base>

@@ -63,8 +63,12 @@ const { title, description, linkText, linkHref, image, imageAlt } = Astro.props;
   }
 
   .card__content {
-    padding: $spacing-unit * 4;
+    padding: $spacing-unit * 3;
     color: $color-white;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 4;
+    }
 
     h3,
     p {

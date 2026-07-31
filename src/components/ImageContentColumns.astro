@@ -1,0 +1,109 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+  layout?: 'image-left' | 'image-right';
+  variant?: 'default' | 'white' | 'charcoal' | 'forest';
+}
+
+const { title, description, image, layout = 'image-left', variant = 'default' } = Astro.props;
+---
+
+<section class="image-content-columns" data-variant={variant} data-layout={layout}>
+  <div class="image-content-columns__inner">
+    <div class="image-content-columns__content">
+      <h2>{title}</h2>
+      <Fragment set:html={description} />
+    </div>
+    <div class="image-content-columns__image">
+      <Image
+        src={image.src}
+        alt={image.alt}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .image-content-columns {
+    padding: $spacing-unit * 8 $spacing-unit * 3;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 12 $spacing-unit * 8;
+    }
+
+    &[data-variant="white"] {
+      background-color: $color-white;
+      box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+    }
+
+    &[data-variant="charcoal"] {
+      background-color: $color-charcoal;
+      color: $color-white;
+    }
+
+    &[data-variant="forest"] {
+      background-color: $color-forest;
+      color: $color-white;
+    }
+  }
+
+  .image-content-columns__inner {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 6;
+
+    @include breakpoint(lg) {
+      flex-direction: row;
+      align-items: center;
+      gap: $spacing-unit * 8;
+    }
+  }
+
+  .image-content-columns__content {
+    flex: 1;
+    order: 1;
+
+    @include breakpoint(lg) {
+      .image-content-columns[data-layout="image-left"] & {
+        order: 2;
+      }
+
+      .image-content-columns[data-layout="image-right"] & {
+        order: 1;
+      }
+    }
+  }
+
+  .image-content-columns__image {
+    flex: 1;
+    order: 2;
+
+    @include breakpoint(lg) {
+      .image-content-columns[data-layout="image-left"] & {
+        order: 1;
+      }
+
+      .image-content-columns[data-layout="image-right"] & {
+        order: 2;
+      }
+    }
+
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>

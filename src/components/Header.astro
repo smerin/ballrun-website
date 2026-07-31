@@ -8,6 +8,7 @@ interface Props {
 const { announcementText = "Coming to Millenium Square • 3rd August" } = Astro.props;
 
 const { navLinks } = navigation;
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
@@ -27,7 +28,7 @@ const { navLinks } = navigation;
 
       <nav class="site-header__nav">
         {navLinks.map((link) => (
-          <a href={link.href} class="site-header__nav-link">
+          <a href={link.href} class="site-header__nav-link" aria-current={currentPath === link.href ? "page" : undefined}>
             {link.label}
           </a>
         ))}
@@ -55,7 +56,7 @@ const { navLinks } = navigation;
 
     <nav class="mobile-nav__links">
       {navLinks.map((link) => (
-        <a href={link.href} class="mobile-nav__link">
+        <a href={link.href} class="mobile-nav__link" aria-current={currentPath === link.href ? "page" : undefined}>
           {link.label}
         </a>
       ))}
@@ -89,7 +90,7 @@ const { navLinks } = navigation;
   }
 
   function handleTabKey(e: KeyboardEvent) {
-    if (!mobileNav?.classList.contains('is-open')) return;
+    if (mobileNav?.getAttribute('aria-hidden') !== 'false') return;
     if (e.key !== 'Tab') return;
 
     const focusable = getFocusableElements();
@@ -114,7 +115,6 @@ const { navLinks } = navigation;
   }
 
   function openMenu() {
-    mobileNav?.classList.add('is-open');
     mobileNav?.setAttribute('aria-hidden', 'false');
     hamburger?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
@@ -124,7 +124,6 @@ const { navLinks } = navigation;
   }
 
   function closeMenu() {
-    mobileNav?.classList.remove('is-open');
     mobileNav?.setAttribute('aria-hidden', 'true');
     hamburger?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -138,7 +137,7 @@ const { navLinks } = navigation;
   overlay?.addEventListener('click', closeMenu);
 
   document.addEventListener('keydown', (e) => {
-    if (!mobileNav?.classList.contains('is-open')) return;
+    if (mobileNav?.getAttribute('aria-hidden') !== 'false') return;
 
     if (e.key === 'Escape') {
       closeMenu();
@@ -239,7 +238,8 @@ const { navLinks } = navigation;
     text-decoration: none;
     transition: color 0.2s;
 
-    &:hover {
+    &:hover,
+    &[aria-current="page"] {
       color: $color-orange;
     }
   }
@@ -277,7 +277,7 @@ const { navLinks } = navigation;
     visibility: hidden;
     pointer-events: none;
 
-    &.is-open {
+    &[aria-hidden="false"] {
       visibility: visible;
       pointer-events: auto;
 
@@ -344,9 +344,9 @@ const { navLinks } = navigation;
     text-decoration: none;
     margin-bottom: 0;
 
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
+    &:hover,
+    &[aria-current="page"] {
+      color: $color-orange;
     }
   }
 

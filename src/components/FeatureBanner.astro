@@ -69,11 +69,15 @@ const { eyebrow, title, description, buttonText, buttonHref, image, imageAlt } =
   }
 
   .feature-banner__content {
-    padding: $spacing-unit * 4;
+    padding: $spacing-unit * 3;
     color: $color-white;
 
     p {
       max-width: 60rem;
+    }
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 4;
     }
 
     @include breakpoint(lg) {

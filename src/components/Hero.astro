@@ -78,8 +78,12 @@ const { title, description, buttonText, buttonHref, image, imageAlt } =
   }
 
   .hero__content {
-    padding: $spacing-unit * 4;
+    padding: $spacing-unit * 3;
     color: $color-white;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 4;
+    }
 
     @include breakpoint(lg) {
       padding: $spacing-unit * 8;
