@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ContentSection from '../components/ContentSection.astro';
 import ImageContentColumns from '../components/ImageContentColumns.astro';
+import Quote from '../components/Quote.astro';
 import woodenBallsImage from '../assets/images/wooden-ball-company-aerial-view.jpg';
 import gppEden051 from '../assets/images/gpp-eden-051-landscape.jpg';
 import gppEden112 from '../assets/images/gpp-eden-112.jpg';
@@ -27,6 +28,17 @@ import gppEden072 from '../assets/images/gpp-eden-072.jpg';
     layout="image-left"
   />
 
+  <section class="inspiration-section">
+    <div class="inspiration-section__inner">
+      <h2>Why We Do This</h2>
+      <p>The idea for Ball Run came from an unexpected place - a family holiday in the Swiss Alps.</p>
+      <Quote
+        quote="After visiting the Bobosco trail in Switzerland, my 7-year-old walked 9km in a single day - excited to see what was around the next corner. That's when I realised play could transform how families move through the world together."
+        attribution="Simon Jackman, Founder"
+      />
+    </div>
+  </section>
+
   <ImageContentColumns
     title="The Craft"
     description="<p>Every run is designed and hand-built by our team, led by Simon Jackman, who has spent more than 20 years building sustainable playgrounds and play equipment, John Packer and Ruby Myers. Each installation is built to last - built to handle the weather, the crowds, and years of play, wherever it ends up.</p>"
@@ -48,3 +60,31 @@ import gppEden072 from '../assets/images/gpp-eden-072.jpg';
     backgroundImage={{ src: gppEden072, alt: "Ball Run installation at Eden Project" }}
   />
 </Base>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .inspiration-section {
+    background-color: $color-forest;
+    color: $color-white;
+    padding: $spacing-unit * 8 $spacing-unit * 3;
+
+    @include breakpoint(md) {
+      padding: $spacing-unit * 12 $spacing-unit * 8;
+    }
+  }
+
+  .inspiration-section__inner {
+    max-width: 70rem;
+    margin: 0 auto;
+
+    h2 {
+      margin-bottom: $spacing-unit * 2;
+    }
+
+    > p {
+      margin-bottom: $spacing-unit * 4;
+    }
+  }
+</style>
