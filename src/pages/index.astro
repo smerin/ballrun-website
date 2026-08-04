@@ -5,6 +5,7 @@ import ContentSection from '../components/ContentSection.astro';
 import FeatureBanner from '../components/FeatureBanner.astro';
 import CardSection from '../components/CardSection.astro';
 import Card from '../components/Card.astro';
+import { pages, external } from '../data/urls';
 import heroImage from '../assets/images/ball-run-pic-1.jpg';
 import introImage1 from '../assets/images/ball-run-pic-2.jpg';
 import introImage2 from '../assets/images/gpp-eden-145.jpg';
@@ -23,7 +24,9 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
       title="Urban Play, Re-Imagined"
       description="Hand-built installations, brought to the heart of towns and cities. Come and play - no ticket, no timer, just balls, runs, and a bit of wonder."
       buttonText="Explore the Bristol Trail"
-      buttonHref="/bristol/"
+      buttonHref={pages.bristol}
+      secondaryButtonText="Have Your Say"
+      secondaryButtonHref={external.survey}
       image={heroImage}
       imageAlt="Child playing with a wooden ball run installation"
     />
@@ -43,7 +46,7 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
       title="The Great Bristol Ball Run"
       description="Six runs across Anchor Square and Millennium Square. Find us from the 4th August."
       buttonText="Explore the Bristol Trail"
-      buttonHref="/bristol/"
+      buttonHref={pages.bristol}
       image={bristolImage}
       imageAlt="Millennium Square planetarium and water features"
     />
@@ -53,7 +56,7 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
         title="Hand-built, not off the shelf"
         description="Meet the makers behind Ball Run and the sustainable timber every ball is turned from."
         linkText="About Us"
-        linkHref="/about/"
+        linkHref={pages.about}
         image={woodenBallsImage}
         imageAlt="Handcrafted wooden balls"
       />
@@ -61,7 +64,7 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
         title="Bring a Ball Run to your city"
         description="We're always looking for city centres, venues and businesses to partner with."
         linkText="Partner With Us"
-        linkHref="/partners/"
+        linkHref={pages.partners}
         image={bristolMistImage}
         imageAlt="Bristol suspension bridge in morning mist"
       />

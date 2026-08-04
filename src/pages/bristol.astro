@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ContentSection from '../components/ContentSection.astro';
 import ImageContentColumns from '../components/ImageContentColumns.astro';
+import { external } from '../data/urls';
 import bristolImage from '../assets/images/millenium-square-planetarium.jpg';
 import ballRunPic1 from '../assets/images/ball-run-pic-1.jpg';
 import weTheCurious from '../assets/images/we-the-curious.jpg';
@@ -16,6 +17,8 @@ import bristolBridge from '../assets/images/bristol-suspension-bridge-mist.jpg';
   <Hero
     title="The Great Bristol Ball Run"
     description="Six runs across Anchor Square and Millennium Square - each built differently, with unique challenges and ways to play and explore."
+    buttonText="Have Your Say"
+    buttonHref={external.survey}
     image={bristolImage}
     imageAlt="Millennium Square planetarium and water features"
   />

@@ -3,9 +3,10 @@ interface Props {
   href?: string;
   type?: 'button' | 'submit';
   arrow?: boolean;
+  variant?: 'default' | 'outline';
 }
 
-const { href, type = 'button', arrow = false } = Astro.props;
+const { href, type = 'button', arrow = false, variant = 'default' } = Astro.props;
 const Tag = href ? 'a' : 'button';
 ---
 
@@ -13,6 +14,7 @@ const Tag = href ? 'a' : 'button';
   class="btn"
   href={href}
   type={!href ? type : undefined}
+  data-variant={variant}
 >
   <slot />
   {arrow && (
@@ -31,6 +33,17 @@ const Tag = href ? 'a' : 'button';
     display: inline-flex;
     align-items: center;
     gap: $spacing-unit;
+
+    &[data-variant="outline"] {
+      background: transparent;
+      border: 2px solid $color-white;
+      color: $color-white;
+
+      &:hover {
+        background: $color-white;
+        color: $color-charcoal;
+      }
+    }
   }
 
   .btn__arrow {

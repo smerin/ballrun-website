@@ -1,5 +1,5 @@
 ---
-import navigation from '../data/navigation.json';
+import { navLinks } from '../data/navigation';
 
 interface Props {
   announcementText?: string;
@@ -7,7 +7,6 @@ interface Props {
 
 const { announcementText = "Coming to Millenium Square • 4th August" } = Astro.props;
 
-const { navLinks } = navigation;
 const currentPath = Astro.url.pathname;
 ---
 

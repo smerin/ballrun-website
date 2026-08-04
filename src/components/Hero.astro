@@ -7,11 +7,13 @@ interface Props {
   description: string;
   buttonText?: string;
   buttonHref?: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
   image: ImageMetadata;
   imageAlt: string;
 }
 
-const { title, description, buttonText, buttonHref, image, imageAlt } =
+const { title, description, buttonText, buttonHref, secondaryButtonText, secondaryButtonHref, image, imageAlt } =
   Astro.props;
 ---
 
@@ -30,10 +32,19 @@ const { title, description, buttonText, buttonHref, image, imageAlt } =
     <h1>{title}</h1>
     <p>{description}</p>
     {
-      buttonText && buttonHref && (
-        <Button href={buttonHref} arrow>
-          {buttonText}
-        </Button>
+      (buttonText || secondaryButtonText) && (
+        <div class="hero__buttons">
+          {buttonText && buttonHref && (
+            <Button href={buttonHref} arrow>
+              {buttonText}
+            </Button>
+          )}
+          {secondaryButtonText && secondaryButtonHref && (
+            <Button href={secondaryButtonHref} arrow variant="outline">
+              {secondaryButtonText}
+            </Button>
+          )}
+        </div>
       )
     }
   </div>
@@ -92,5 +103,11 @@ const { title, description, buttonText, buttonHref, image, imageAlt } =
     p {
       max-width: 70rem;
     }
+  }
+
+  .hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit * 2;
   }
 </style>

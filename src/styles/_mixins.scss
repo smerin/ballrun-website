@@ -58,7 +58,8 @@
   transition: background 0.3s;
 
   &:hover {
-    background: $color-charcoal;
+    background: $color-white;
+    color: $color-charcoal;
   }
 }
 

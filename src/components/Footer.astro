@@ -1,7 +1,8 @@
 ---
-import navigation from '../data/navigation.json';
+import { navLinks } from '../data/navigation';
+import { pages } from '../data/urls';
 
-const footerLinks = [{ label: 'Home', href: '/' }, ...navigation.navLinks];
+const footerLinks = [{ label: 'Home', href: pages.home }, ...navLinks];
 const currentYear = new Date().getFullYear();
 ---
 
