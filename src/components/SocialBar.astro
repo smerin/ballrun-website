@@ -1,0 +1,27 @@
+---
+import SocialLinks from './SocialLinks.astro';
+---
+
+<div class="social-bar">
+  <span class="social-bar__text">Find us on social media</span>
+  <SocialLinks size="small" />
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .social-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-unit * 2;
+    padding: $spacing-unit * 2 $spacing-unit * 3;
+    background: $color-forest;
+    color: $color-white;
+  }
+
+  .social-bar__text {
+    @include eyebrow-small;
+  }
+</style>

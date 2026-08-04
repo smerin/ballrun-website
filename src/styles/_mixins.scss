@@ -40,6 +40,16 @@
   }
 }
 
+@mixin eyebrow-small {
+  display: block;
+  font-family: $font-family-ui;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 @mixin btn {
   display: inline-block;
   width: fit-content;
