@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ContentSection from '../components/ContentSection.astro';
 import ImageContentColumns from '../components/ImageContentColumns.astro';
-import Quote from '../components/Quote.astro';
 import woodenBallsImage from '../assets/images/wooden-ball-company-aerial-view.jpg';
 import gppEden051 from '../assets/images/gpp-eden-051-landscape.jpg';
 import gppEden112 from '../assets/images/gpp-eden-112.jpg';
@@ -28,16 +27,11 @@ import gppEden072 from '../assets/images/gpp-eden-072.jpg';
     layout="image-left"
   />
 
-  <section class="inspiration-section">
-    <div class="inspiration-section__inner">
-      <h2>Why We Do This</h2>
-      <p>The idea for Ball Run came from an unexpected place - a family holiday in the Swiss Alps.</p>
-      <Quote
-        quote="After visiting the Bobosco trail in Switzerland, my 7-year-old walked 9km in a single day - excited to see what was around the next corner. That's when I realised play could transform how families move through the world together."
-        attribution="Simon Jackman, Founder"
-      />
-    </div>
-  </section>
+  <ContentSection
+    title="Where It Started"
+    description={`<p>A trip to the Bobosco trail in Switzerland’s Valle Verzasca gave Simon the spark that shaped everything since. Walking through the forest, dotted with wooden ball runs at every turn, he watched kids and grown-ups play together - both equally hooked on watching a wooden ball find its way down. He realised this would be the perfect way to get families active and engaged with their surroundings and each other. His 7-year-old daughter Ivy walked 9km that day without a single "are we there yet?" - too busy wondering what was waiting around the next corner.</p><p>That’s when it clicked: play like this doesn’t just entertain, it gets people moving, together, without them even noticing. Ball Run is our way of bringing that same spark - curiosity, shared play, grown-ups joining in rather than just watching - into everyday town and city life.</p>`}
+    variant="forest"
+  />
 
   <ImageContentColumns
     title="The Craft"
@@ -60,31 +54,3 @@ import gppEden072 from '../assets/images/gpp-eden-072.jpg';
     backgroundImage={{ src: gppEden072, alt: "Ball Run installation at Eden Project" }}
   />
 </Base>
-
-<style lang="scss">
-  @use '../styles/variables' as *;
-  @use '../styles/mixins' as *;
-
-  .inspiration-section {
-    background-color: $color-forest;
-    color: $color-white;
-    padding: $spacing-unit * 8 $spacing-unit * 3;
-
-    @include breakpoint(md) {
-      padding: $spacing-unit * 12 $spacing-unit * 8;
-    }
-  }
-
-  .inspiration-section__inner {
-    max-width: 70rem;
-    margin: 0 auto;
-
-    h2 {
-      margin-bottom: $spacing-unit * 2;
-    }
-
-    > p {
-      margin-bottom: $spacing-unit * 4;
-    }
-  }
-</style>
