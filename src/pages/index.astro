@@ -7,7 +7,8 @@ import CardSection from '../components/CardSection.astro';
 import Card from '../components/Card.astro';
 import SocialBar from '../components/SocialBar.astro';
 import { pages, external } from '../data/urls';
-import heroImage from '../assets/images/ball-run-pic-1.jpg';
+import heroVideo from '../assets/video/hero-video.mp4';
+import heroVideoMobile from '../assets/video/hero-video-portrait.mp4';
 import introImage1 from '../assets/images/BALL_RUN_LO_038.jpg';
 import introImage2 from '../assets/images/BALL_RUN_LO_087.jpg';
 import introImage3 from '../assets/images/BALL_RUN_LO_036.jpg';
@@ -28,8 +29,8 @@ import bristolMistImage from '../assets/images/bristol-suspension-bridge-mist.jp
       buttonHref={pages.bristol}
       secondaryButtonText="Have Your Say"
       secondaryButtonHref={external.survey}
-      image={heroImage}
-      imageAlt="Child playing with a wooden ball run installation"
+      video={heroVideo}
+      videoMobile={heroVideoMobile}
     />
 
     <SocialBar />

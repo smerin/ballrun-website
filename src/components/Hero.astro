@@ -9,24 +9,40 @@ interface Props {
   buttonHref?: string;
   secondaryButtonText?: string;
   secondaryButtonHref?: string;
-  image: ImageMetadata;
-  imageAlt: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  video?: string;
+  videoMobile?: string;
 }
 
-const { title, description, buttonText, buttonHref, secondaryButtonText, secondaryButtonHref, image, imageAlt } =
+const { title, description, buttonText, buttonHref, secondaryButtonText, secondaryButtonHref, image, imageAlt, video, videoMobile } =
   Astro.props;
 ---
 
 <section class="hero">
-  <Image
-    src={image}
-    alt={imageAlt}
-    class="hero__image"
-    widths={[640, 1024, 1536, 2048]}
-    sizes="100vw"
-    loading="eager"
-    fetchpriority="high"
-  />
+  {video ? (
+    <video
+      class="hero__media"
+      autoplay
+      loop
+      muted
+      playsinline
+      aria-hidden="true"
+    >
+      {videoMobile && <source src={videoMobile} media="(max-width: 768px)" type="video/mp4" />}
+      <source src={video} type="video/mp4" />
+    </video>
+  ) : image && (
+    <Image
+      src={image}
+      alt={imageAlt || ""}
+      class="hero__media"
+      widths={[640, 1024, 1536, 2048]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+  )}
   <div class="hero__overlay"></div>
   <div class="hero__content">
     <h1>{title}</h1>
@@ -67,7 +83,7 @@ const { title, description, buttonText, buttonHref, secondaryButtonText, seconda
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
   }
 
-  .hero__image {
+  .hero__media {
     position: absolute;
     inset: 0;
     width: 100%;
